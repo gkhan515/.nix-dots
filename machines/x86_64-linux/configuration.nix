@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ../../system/extra-packages.nix
     ../../system/power-management.nix
   ];
 
