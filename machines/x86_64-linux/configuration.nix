@@ -8,19 +8,6 @@
   nix.optimise.automatic = true;
   # system.copySystemConfiguration = true;
 
-  # services.system76-scheduler.settings.cfsProfiles.enable = true;
-  # services.power-profiles-daemon.enable = false;
-  # services.thermald.enable = true;
-  # services.tlp = {
-  #   enable = true;
-  #   settings = {
-  #     CPU_BOOST_ON_AC = 1;
-  #     CPU_BOOST_ON_BAT = 0;
-  #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
-  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-  #   };
-  # };
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
@@ -116,25 +103,8 @@
     firefox
     # libgccjit # gcc
     # binutils # gcc
-    git
-    htop
-    mpv
-    neovim
-    ntfs3g
-    nodejs_20
-    nodePackages.peerflix
-    python3
     # virtualbox
-    wezterm
-    yt-dlp
-    zathura
   ];
-
-  programs.bash.shellAliases = {
-    vim="nvim";
-    yt-dlp="yt-dlp -format='bestvideo[height<=?1080][fps<=?30][vcodec!=?vp9]+bestaudio/best'";
-    pf="peerflix --mpv --remove --list";
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
