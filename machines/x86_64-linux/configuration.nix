@@ -4,7 +4,7 @@
   ];
 
   nix.optimise.automatic = true;
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
 
   services.system76-scheduler.settings.cfsProfiles.enable = true;
   services.power-profiles-daemon.enable = false;
