@@ -8,10 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../system/my-defaults.nix
+      ../../apps/essentials.nix
     ];
-
-  nix.settings.auto-optimise-store = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -80,7 +79,6 @@
   #   wget
   # ];
   environment.systemPackages = with pkgs; [
-    neovim
     alacritty
   ];
 

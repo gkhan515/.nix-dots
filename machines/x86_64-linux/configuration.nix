@@ -1,12 +1,12 @@
 { config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ../../system/my-defaults.nix
+    ../../system/power-management.nix
     ../../apps/essentials.nix
     ../../apps/extra-packages.nix
-    ../../system/power-management.nix
   ];
 
-  nix.optimise.automatic = true;
   # system.copySystemConfiguration = true;
 
   boot.loader.systemd-boot.enable = true;

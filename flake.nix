@@ -18,7 +18,7 @@
         ];
       };
 
-      darwin = nixpkgs.lib.nixosSystem {
+      m1-vm = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
 	specialArgs = {inherit inputs;};
         modules = [
