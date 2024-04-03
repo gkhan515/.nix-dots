@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./shells/shells.nix
   ];
 
   environment.systemPackages = with pkgs; [
