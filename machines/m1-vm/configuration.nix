@@ -2,15 +2,23 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
+      inputs.home-manager.nixosModules.default
       ./hardware-configuration.nix
       ../../system/my-defaults.nix
       ../../apps/essentials.nix
     ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      gk = import ./home.nix;
+    };
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -71,6 +79,11 @@
   #     tree
   #   ];
   # };
+
+  users.users.gk = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

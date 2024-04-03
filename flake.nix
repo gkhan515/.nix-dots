@@ -27,6 +27,7 @@
 	specialArgs = {inherit inputs;};
         modules = [
           ./machines/m1-vm/configuration.nix
+	  inputs.home-manager.nixosModules.default
         ];
       };
     };
