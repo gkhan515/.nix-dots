@@ -20,6 +20,15 @@
     };
   };
 
+  programs.hyprland.enable = true;
+
+  services.xserver = {
+    xkb = {
+      layout = "us";
+      variant = "dvp";
+    };
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
