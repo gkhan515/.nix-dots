@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../apps/extras.nix
     ../../apps/shells/shells.nix
     ../../wm/hyprland.nix
   ];
