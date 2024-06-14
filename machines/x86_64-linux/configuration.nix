@@ -1,10 +1,18 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
     ../../system/my-defaults.nix
     ../../system/power-management.nix
     ../../apps/essentials.nix
   ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      gkhan = import ./home.nix;
+    };
+  };
 
   # system.copySystemConfiguration = true;
 

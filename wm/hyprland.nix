@@ -1,13 +1,17 @@
 { config, pkgs, ...}:
 
 {
+  # progams.hyprland.enable = true;
   wayland.windowManager.hyprland.enable = true;
 
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
-    "$terminal" = "alacritty";
+    "$terminal" = "wezterm";
 
-    bind = [ "$mod, RETURN, exec, alacritty" ];
+    bind = [ 
+      "$mod, RETURN, exec, $terminal"
+      "$mod, q, exit"
+    ];
   };
 
   home.sessionVariables = {
