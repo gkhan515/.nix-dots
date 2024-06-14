@@ -5,6 +5,7 @@
     ../../system/my-defaults.nix
     ../../system/power-management.nix
     ../../apps/essentials.nix
+    ../../fonts/fonts.nix
   ];
 
   home-manager = {
