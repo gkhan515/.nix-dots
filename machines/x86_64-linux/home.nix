@@ -4,8 +4,10 @@
   imports = [
     ../../apps/extras.nix
     ../../apps/shells/shells.nix
+    # ../../styles/stylix.nix
     ../../wm/hyprland.nix
   ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "gkhan";

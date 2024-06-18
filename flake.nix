@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {self, nixpkgs, ...}@inputs:
@@ -20,6 +21,7 @@
         modules = [
           ./machines/x86_64-linux/configuration.nix
 	  inputs.home-manager.nixosModules.default
+	  inputs.stylix.nixosModules.stylix
         ];
       };
 

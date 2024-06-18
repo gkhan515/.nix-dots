@@ -1,24 +1,26 @@
 { config, pkgs, ...}:
 
 {
-  home.packages = with pkgs; [
-    kitty
-  ];
-
   wayland.windowManager.hyprland.enable = true;
+
+  programs.kitty.enable = true;
 
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     "$terminal" = "kitty";
 
     bind = [ 
-      "$mod, t, exec, $terminal"
+      "$mod, RETURN, exec, $terminal"
       "$mod, q, exit"
+      "$mod, b, exec, firefox"
     ];
   };
 
   wayland.windowManager.hyprland.extraConfig = ''
-    exec-once = $terminal
+  input {
+    kb_layout = us
+    kb_variant = dvp
+  }
   '';
 
   home.sessionVariables = {

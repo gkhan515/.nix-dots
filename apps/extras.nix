@@ -10,4 +10,9 @@
     ani-cli
     nodePackages.peerflix
   ];
+
+  programs.btop.enable = true;
+  programs.kitty.enable = true;
+  programs.wezterm.enable = true;
+
 }

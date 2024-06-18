@@ -6,6 +6,7 @@
     ../../system/power-management.nix
     ../../apps/essentials.nix
     ../../fonts/fonts.nix
+    ../../styles/stylix.nix
   ];
 
   home-manager = {
@@ -13,6 +14,7 @@
     users = {
       gkhan = import ./home.nix;
     };
+    backupFileExtension = "BAK";
   };
 
   # system.copySystemConfiguration = true;
