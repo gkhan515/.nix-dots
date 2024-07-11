@@ -8,7 +8,12 @@
 
   home.packages = with pkgs; [
     ani-cli
+    cmatrix
+    discord
+    eww
+    helix
     nodePackages.peerflix
+    # nodePackages_latest.webtorrent-cli
   ];
 
   programs.btop.enable = true;

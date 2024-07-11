@@ -1,10 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+    
   imports = [
     ../../apps/extras.nix
     ../../apps/shells/shells.nix
-    # ../../styles/stylix.nix
     ../../wm/hyprland.nix
   ];
 
