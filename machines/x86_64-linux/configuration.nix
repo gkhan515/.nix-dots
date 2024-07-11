@@ -27,7 +27,18 @@
   networking.hostName = "nixos";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
+    wireless.iwd = {
+      enable = true;
+      settings.Settings = {
+        AutoConnect = true;
+      };
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";

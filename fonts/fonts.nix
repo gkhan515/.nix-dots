@@ -7,5 +7,6 @@
         "FiraCode"
       ];
     })
+    font-awesome
   ];
 }

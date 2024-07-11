@@ -3,7 +3,7 @@
 {
   stylix = {
     enable = true;
-    image = /home/gkhan/.dotfiles/wallpapers/kame-house.png;
+    image = /home/gkhan/.dotfiles/wallpapers/kame-house.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
 
     cursor = {
@@ -15,7 +15,7 @@
     fonts = {
       monospace = {
         package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
-	name = "FiraCode Nerd Font";
+        name = "FiraCode Nerd Font";
       };
       # serif = {};
       # sansSerif = {};
@@ -25,7 +25,7 @@
         # applications = ;
         # desktop = ;
         # popups  ;
-	terminal = 13;
+        terminal = 13;
       };
     };
 
