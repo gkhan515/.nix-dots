@@ -71,6 +71,15 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  #Enable docker
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   # Enable virtualbox
   # virtualisation.virtualbox.host.enable = true;
   # virtualisation.virtualbox.guest.enable = true;
@@ -111,7 +120,7 @@
   users.users.gkhan = {
     isNormalUser = true;
     description = "Gibron Khan";
-    extraGroups = [ "networkmanager" "vboxusers" "video" "wheel"];
+    extraGroups = [ "docker" "networkmanager" "vboxusers" "video" "wheel"];
     packages = with pkgs; [
     ];
   };
