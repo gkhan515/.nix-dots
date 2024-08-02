@@ -29,11 +29,11 @@
       };
     };
 
-    # opacity = {
-    #   applications = ;
-    #   desktop = ;
-    #   popups  ;
-    #   terminal = ;
-    # };
+    opacity = {
+      # applications = ;
+      # desktop = ;
+      # popups = ;
+      terminal = 0.9;
+    };
   };
 }

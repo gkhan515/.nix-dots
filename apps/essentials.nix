@@ -18,4 +18,6 @@
     yt-dlp
     zathura
   ];
+
+  hardware.brillo.enable = true;
 }

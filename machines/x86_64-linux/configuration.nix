@@ -111,7 +111,7 @@
   users.users.gkhan = {
     isNormalUser = true;
     description = "Gibron Khan";
-    extraGroups = [ "networkmanager" "wheel" "vboxusers"];
+    extraGroups = [ "networkmanager" "vboxusers" "video" "wheel"];
     packages = with pkgs; [
     ];
   };
