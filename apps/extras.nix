@@ -10,6 +10,7 @@
     ani-cli
     cmatrix
     discord
+    distrobox
     eww
     helix
     nodePackages.peerflix
