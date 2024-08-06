@@ -38,6 +38,8 @@
         AutoConnect = true;
       };
     };
+    firewall.checkReversePath = false;
+    wireguard.enable = true;
   };
 
   # Set your time zone.
