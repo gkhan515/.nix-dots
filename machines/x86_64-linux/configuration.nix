@@ -4,6 +4,7 @@
     inputs.home-manager.nixosModules.default
     ../../system/my-defaults.nix
     ../../system/power-management.nix
+    # ../../system/intel-hwdec.nix
     ../../apps/essentials.nix
     ../../fonts/fonts.nix
     ../../styles/stylix.nix
@@ -30,17 +31,19 @@
   networking = {
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
+      # wifi.backend = "iwd";
     };
-    wireless.iwd = {
-      enable = true;
-      settings.Settings = {
-        AutoConnect = true;
-      };
-    };
+    # wireless.iwd = {
+    #   enable = true;
+    #   settings.Settings = {
+    #     AutoConnect = true;
+    #   };
+    # };
     firewall.checkReversePath = false;
     wireguard.enable = true;
   };
+
+  hardware.bluetooth.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -86,9 +89,9 @@
   # };
 
   # Enable virtualbox
-  # virtualisation.virtualbox.host.enable = true;
-  # virtualisation.virtualbox.guest.enable = true;
-  # virtualisation.virtualbox.guest.dragAndDrop = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
 
   # Configure keymap in X11
   services.xserver = {
