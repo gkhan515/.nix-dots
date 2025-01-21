@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, inputs, ...}:
 
 {
   wayland.windowManager.hyprland.enable = true;
@@ -9,6 +9,8 @@
     "$mainMod" = "ALT";
     "$mod" = "SUPER";
     "$terminal" = "kitty";
+
+    "workspace" = "f[1], border:0, gapsout:0";
 
     bind = [ 
       "$mainMod SHIFT, code:24, exit"
@@ -54,14 +56,14 @@
     ];
 
     binde = [
-      ",     XF86MonBrightnessUp,   exec, ~/.config/eww/scripts/brightness.sh --inc 3"
-      ",     XF86MonBrightnessDown, exec, ~/.config/eww/scripts/brightness.sh --dec 3" 
+      "    , XF86MonBrightnessUp,   exec, ~/.config/eww/scripts/brightness.sh --inc 3"
+      "    , XF86MonBrightnessDown, exec, ~/.config/eww/scripts/brightness.sh --dec 3" 
       "CTRL, XF86MonBrightnessUp,   exec, ~/.config/eww/scripts/brightness.sh --inc 1" 
       "CTRL, XF86MonBrightnessDown, exec, ~/.config/eww/scripts/brightness.sh --dec 1" 
 
-      ",     XF86AudioMute,        exec, ~/.config/eww/scripts/volume.sh --mute"
-      ",     XF86AudioRaiseVolume, exec, ~/.config/eww/scripts/volume.sh --inc 3"
-      ",     XF86AudioLowerVolume, exec, ~/.config/eww/scripts/volume.sh --dec 3" 
+      "    , XF86AudioMute,        exec, ~/.config/eww/scripts/volume.sh --mute"
+      "    , XF86AudioRaiseVolume, exec, ~/.config/eww/scripts/volume.sh --inc 3"
+      "    , XF86AudioLowerVolume, exec, ~/.config/eww/scripts/volume.sh --dec 3" 
       "CTRL, XF86AudioRaiseVolume, exec, ~/.config/eww/scripts/volume.sh --inc 1" 
       "CTRL, XF86AudioLowerVolume, exec, ~/.config/eww/scripts/volume.sh --dec 1" 
     ];
@@ -69,8 +71,8 @@
     exec-once = [
       "nm-applet"
       "wpaperd -d"
-      "eww open bar0"
-      "eww open bar1"
+      # "eww open bar0"
+      # "eww open bar1"
     ];
   };
 
@@ -84,9 +86,9 @@
   #   }
   # }
   #
-  dwindle {
-    no_gaps_when_only = 1
-  }
+  # dwindle {
+  #   no_gaps_when_only = 1
+  # }
 
   general {
     border_size = 1
@@ -111,8 +113,12 @@
   '';
 
   home.packages = with pkgs; [
+    ags
+    eww
     networkmanagerapplet
     wpaperd
+    # inputs.hyprpanel.packages.${builtins.currentSystem}.default
+    # (builtins.getFlake "github:Jas-SinghFSU/HyprPanel/2fbbdd7b412bbb016ad9535771bf28f1d284550f").packages.${builtins.currentSystem}.default
   ];
 
   home.sessionVariables = {

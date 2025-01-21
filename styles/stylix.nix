@@ -1,6 +1,10 @@
-{ config, pkgs, ...}:
+{ config, pkgs, inputs, ...}:
 
 {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
+
   stylix = {
     enable = true;
     image = /home/gkhan/.dotfiles/wallpapers/kame-house.jpg;
@@ -14,8 +18,8 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.fira-code;
-        name = "FiraCode Nerd Font";
+        package = pkgs.nerd-fonts.iosevka-term-slab;
+        name = "IosevkaTermSlab Nerd Font";
       };
       # serif = {};
       # sansSerif = {};
@@ -33,7 +37,7 @@
       # applications = ;
       # desktop = ;
       # popups = ;
-      terminal = 0.9;
+      # terminal = 0.9;
     };
   };
 }

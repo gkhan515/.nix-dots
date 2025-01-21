@@ -7,14 +7,16 @@
   };
 
   home.packages = with pkgs; [
-    ani-cli
+    # ags
     cmatrix
     discord
     distrobox
-    eww
+    # eww
     helix
-    nodePackages.peerflix
+    # nodePackages.peerflix
     # nodePackages_latest.webtorrent-cli
+
+    # (builtins.getFlake "github:0xc000022070/zen-browser-flake").packages.${builtins.currentSystem}.default
   ];
 
   programs.btop.enable = true;

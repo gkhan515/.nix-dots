@@ -1,7 +1,6 @@
 { config, pkgs, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
     ../../system/my-defaults.nix
     ../../system/power-management.nix
     # ../../system/intel-hwdec.nix
@@ -31,14 +30,14 @@
   networking = {
     networkmanager = {
       enable = true;
-      # wifi.backend = "iwd";
+      wifi.backend = "iwd";
     };
-    # wireless.iwd = {
-    #   enable = true;
-    #   settings.Settings = {
-    #     AutoConnect = true;
-    #   };
-    # };
+    wireless.iwd = {
+      enable = true;
+      settings.Settings = {
+        AutoConnect = true;
+      };
+    };
     firewall.checkReversePath = false;
     wireguard.enable = true;
   };
@@ -89,9 +88,9 @@
   # };
 
   # Enable virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
+  # virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.guest.enable = true;
+  # virtualisation.virtualbox.guest.dragAndDrop = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -139,10 +138,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox
-    # libgccjit # gcc
-    # binutils # gcc
-    # virtualbox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
