@@ -5,17 +5,26 @@
   # $ nix-env -qaP | grep wget
 
   environment.systemPackages = with pkgs; [
+    btop
+    cmatrix
+    htop
     kitty
     neovim
+    yt-dlp
+    zathura
   ];
 
-  # homebrew = {
-  #   enable = true;
-  #   brews = [
-  #   ];
-  #   casks = [
-  #   ];
-  # };
+  homebrew = {
+    enable = true;
+    # brews = [
+    # ];
+    casks = [
+      "betterdisplay"
+      "discord"
+      "firefox"
+      "iina"
+    ];
+  };
 
   # system.activationScripts.postActivation.text = ''
   # '';
