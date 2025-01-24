@@ -1,4 +1,4 @@
-{ pkgs, self, ... }: 
+{ pkgs, self, inputs, ... }: 
 
 {
   # List packages installed in system profile. To search by name, run:
@@ -32,7 +32,22 @@
   services = {
     skhd.enable = true;
     yabai.enable = true;
-  };  
+  };
+
+  users.users.gkhan = {
+    name = "gkhan";
+    home = "/Users/gkhan";
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      gkhan = import ./home.nix;
+    };
+    backupFileExtension = "BAK";
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";

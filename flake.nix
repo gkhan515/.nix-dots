@@ -9,7 +9,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-darwin = {
+    darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -34,9 +34,12 @@
     homeConfigurations = {};
 
     darwinConfigurations = {
-      default = inputs.nix-darwin.lib.darwinSystem {
+      default = inputs.darwin.lib.darwinSystem {
         specialArgs = { inherit self; inherit inputs; };
-        modules = [ ./machines/macos/configuration.nix ];
+        modules = [ 
+	  ./machines/macos/configuration.nix
+	  inputs.home-manager.darwinModules.home-manager
+	];
       };
     };
 
