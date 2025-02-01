@@ -4,11 +4,16 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
 
+  imports = [
+    ../../fonts/fonts.nix
+    ../../styles/macos.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     btop
     cmatrix
     htop
-    kitty
+    mpv
     neovim
     yt-dlp
     zathura
@@ -23,6 +28,7 @@
       "discord"
       "firefox"
       "iina"
+      "kitty"
     ];
   };
 
@@ -48,6 +54,8 @@
     useGlobalPkgs = true;
     useUserPackages = true;
   };
+
+  nix.optimise.automatic = true;
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";

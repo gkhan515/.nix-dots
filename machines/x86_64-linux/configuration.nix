@@ -127,6 +127,7 @@
   users.users.gkhan = {
     isNormalUser = true;
     description = "Gibron Khan";
+    home = "/home/gkhan";
     extraGroups = [ "docker" "networkmanager" "vboxusers" "video" "wheel"];
     packages = with pkgs; [
     ];

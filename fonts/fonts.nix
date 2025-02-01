@@ -3,7 +3,7 @@
 {
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
-    # iosevka
+    iosevka
     nerd-fonts.iosevka-term-slab
     # font-awesome
   ];

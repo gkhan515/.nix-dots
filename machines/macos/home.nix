@@ -1,18 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
-    
   imports = [
+    ../../apps/terminals
+    ../../apps/nixvim
   ];
 
   # home.username = "gkhan";
   # home.homeDirectory = "/Users/gkhan";
+
+  programs.kitty.package = pkgs.emptyDirectory;
+  programs.wezterm.package = pkgs.emptyDirectory;
 
   home.packages = with pkgs; [
   ];
@@ -25,6 +23,13 @@
 
   programs.home-manager.enable = true;
 
+  # nixpkgs = {
+  #   config = {
+  #     allowUnfree = true;
+  #     allowUnfreePredicate = (_: true);
+  #   };
+  # };
+ 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.

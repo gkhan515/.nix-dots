@@ -8,7 +8,8 @@
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.iosevka-term-slab;
-        name = "IosevkaTermSlab Nerd Font";
+	# package = pkgs.iosevka;
+        name = "IosevkaTermSlab Nerd Font Mono";
       };
       # serif = {};
       # sansSerif = {};
@@ -18,7 +19,7 @@
         # applications = ;
         # desktop = ;
         # popups  ;
-        terminal = 13;
+        terminal = 15;
       };
     };
 
@@ -28,5 +29,6 @@
       # popups = ;
       # terminal = 0.9;
     };
+
   };
 }

@@ -13,8 +13,9 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    nixvim.url = "github:nix-community/nixvim";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {self, nixpkgs, ...}@inputs:
