@@ -9,54 +9,74 @@
     enable = true;
 
     opts = {
+      guicursor = "";
+
       number = true;
       relativenumber = true;
+
+      tabstop = 2;
+      softtabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      smartindent = true;
     };
 
     plugins = {
       cmp = {
         enable = true;
         autoEnableSources = true;
-	settings = {
+	      settings = {
           sources = [
             { name = "buffer"; }
             { name = "luasnip"; }
             { name = "nvim_lsp"; }
             { name = "path"; }
-	  ];
-	  snippet.expand = ''
+	        ];
+	        snippet.expand = ''
             function (args)
               require('luasnip').lsp_expand(args.body)
-	    end
-	  '';
-	  preselect = "none";
-	  mapping = {
-	    "<CR>" = "cmp.mapping.confirm({ select = true })";
-	    "<C-e>" = "cmp.mapping.abort()";
-	    "<Tab>" = ''
-	      cmp.mapping(function(fallback)
-	        if cmp.visible() then
-	          cmp.select_next_item()
-	        elseif require("luasnip").expand_or_jumpable() then
-	          require("luasnip").expand_or_jump()
-	        else
-	          fallback()
-	        end
-	      end, {'i', 's'})
-	    '';
-	    "<S-Tab>" = ''
-	      cmp.mapping(function(fallback)
-	        if cmp.visible() then
-	          cmp.select_prev_item()
-	        elseif require("luasnip").expand_or_jumpable() then
-	          require("luasnip").jump(-1)
-	        else
-	          fallback()
-	        end 
-	      end, {'i', 's'})
-	    '';
-	  };
-	};
+	          end
+	        '';
+          preselect = "none";
+          mapping = {
+            "<CR>" =''
+              cmp.mapping({
+                i = function(fallback)
+                  if cmp.visible() and cmp.get_active_entry() then
+                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                  else
+                    fallback()
+                  end
+                end,
+                s = cmp.mapping.confirm({ select = true }),
+                c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+              })
+            '';
+            "<Tab>" = ''
+              cmp.mapping(function(fallback)
+                if cmp.visible() then
+                  cmp.select_next_item()
+                elseif require("luasnip").expand_or_jumpable() then
+                  require("luasnip").expand_or_jump()
+                else
+                  fallback()
+                end
+              end, {'i', 's'})
+            '';
+            "<S-Tab>" = ''
+              cmp.mapping(function(fallback)
+                if cmp.visible() then
+                  cmp.select_prev_item()
+                elseif require("luasnip").expand_or_jumpable() then
+                  require("luasnip").jump(-1)
+                else
+                  fallback()
+                end 
+              end, {'i', 's'})
+            '';
+            "<C-e>" = "cmp.mapping.abort()";
+          };
+        };
       };
       cmp-nvim-lsp.enable = true;
       luasnip.enable = true;
@@ -67,13 +87,13 @@
 
       lsp = {
         enable = true;
-	servers = {
-	  clangd.enable = true;    # C
-	  jdtls.enable = true;     # Java
-	  ts_ls.enable = true;     # Javascript/Typescript
+	      servers = {
+          clangd.enable = true;    # C
+          jdtls.enable = true;     # Java
+          ts_ls.enable = true;     # Javascript/Typescript
           lua_ls.enable = true;    # Lua
-	  pyright.enable = true;   # Python
-	};
+          pyright.enable = true;   # Python
+        };
       };
 
       lualine.enable = true;
@@ -87,13 +107,13 @@
 
       treesitter = {
         enable = true;
-	settings = {
+        settings = {
           auto_install = true;
-	  highlight = {
+          highlight = {
             enable = true;
-	    additional_vim_regex_highlighting = false;
-	  };
-	};
+            additional_vim_regex_highlighting = false;
+          };
+        };
       };
     };
 
