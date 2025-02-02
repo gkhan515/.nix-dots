@@ -20,7 +20,7 @@
 	settings = {
           sources = [
             { name = "buffer"; }
-            # { name = "luasnip"; }
+            { name = "luasnip"; }
             { name = "nvim_lsp"; }
             { name = "path"; }
 	  ];
@@ -29,11 +29,38 @@
               require('luasnip').lsp_expand(args.body)
 	    end
 	  '';
+	  preselect = "none";
+	  mapping = {
+	    "<CR>" = "cmp.mapping.confirm({ select = true })";
+	    "<C-e>" = "cmp.mapping.abort()";
+	    "<Tab>" = ''
+	      cmp.mapping(function(fallback)
+	        if cmp.visible() then
+	          cmp.select_next_item()
+	        elseif require("luasnip").expand_or_jumpable() then
+	          require("luasnip").expand_or_jump()
+	        else
+	          fallback()
+	        end
+	      end, {'i', 's'})
+	    '';
+	    "<S-Tab>" = ''
+	      cmp.mapping(function(fallback)
+	        if cmp.visible() then
+	          cmp.select_prev_item()
+	        elseif require("luasnip").expand_or_jumpable() then
+	          require("luasnip").jump(-1)
+	        else
+	          fallback()
+	        end 
+	      end, {'i', 's'})
+	    '';
+	  };
 	};
       };
-      # cmp-nvim-lsp.enable = true;
+      cmp-nvim-lsp.enable = true;
       luasnip.enable = true;
-      # cmp_luasnip.enable = true;
+      cmp_luasnip.enable = true;
       # friendly-snippets.enable = true;
 
       indent-blankline.enable = true;
