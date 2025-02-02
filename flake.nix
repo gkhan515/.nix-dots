@@ -38,9 +38,9 @@
       default = inputs.darwin.lib.darwinSystem {
         specialArgs = { inherit self; inherit inputs; };
         modules = [ 
-	  ./machines/macos/configuration.nix
-	  inputs.home-manager.darwinModules.home-manager
-	];
+          ./machines/macos/configuration.nix
+          inputs.home-manager.darwinModules.home-manager
+        ];
       };
     };
 

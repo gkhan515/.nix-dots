@@ -108,6 +108,7 @@
           jdtls.enable = true;     # Java
           ts_ls.enable = true;     # Javascript/Typescript
           lua_ls.enable = true;    # Lua
+          nil_ls.enable = true;    # Nix
           pyright.enable = true;   # Python
         };
       };
