@@ -8,7 +8,7 @@
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.iosevka-term-slab;
-	# package = pkgs.iosevka;
+      	# package = pkgs.iosevka;
         name = "IosevkaTermSlab Nerd Font Mono";
       };
       # serif = {};

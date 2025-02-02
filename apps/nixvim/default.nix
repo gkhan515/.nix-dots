@@ -8,6 +8,10 @@
   programs.nixvim = {
     enable = true;
 
+    globals = {
+      mapleader = " ";
+    };
+
     opts = {
       guicursor = "";
 
@@ -20,6 +24,18 @@
       expandtab = true;
       smartindent = true;
     };
+
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>.";
+        action.__raw = "require('telescope.builtin').find_files";
+        options = {
+          desc = "Find files";
+          silent = true;
+        };
+      }
+    ];
 
     plugins = {
       cmp = {
@@ -37,7 +53,7 @@
               require('luasnip').lsp_expand(args.body)
 	          end
 	        '';
-          preselect = "none";
+          preselect = "\"none\"";
           mapping = {
             "<CR>" =''
               cmp.mapping({
@@ -105,6 +121,10 @@
       #   };
       # };
 
+      telescope = {
+        enable = true;
+      };
+
       treesitter = {
         enable = true;
         settings = {
@@ -115,6 +135,8 @@
           };
         };
       };
+
+      web-devicons.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [
