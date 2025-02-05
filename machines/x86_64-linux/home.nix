@@ -10,7 +10,7 @@
     
   imports = [
     ../../apps/extras.nix
-    ../../apps/shells/shells.nix
+    ../../apps/shells
     ../../wm/hyprland.nix
   ];
 

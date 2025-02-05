@@ -4,11 +4,13 @@
   imports = [
     ../../apps/terminals
     ../../apps/nixvim
+    # ../../apps/starship.nix
   ];
 
   # home.username = "gkhan";
   # home.homeDirectory = "/Users/gkhan";
 
+  programs.btop.enable = true;
   programs.kitty.package = pkgs.emptyDirectory;
   programs.wezterm.package = pkgs.emptyDirectory;
 

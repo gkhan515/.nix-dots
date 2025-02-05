@@ -15,6 +15,8 @@
     htop
     mpv
     neovim
+    starship
+    tmux
     yt-dlp
     zathura
   ];
