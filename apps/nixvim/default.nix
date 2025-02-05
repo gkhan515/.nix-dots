@@ -55,7 +55,7 @@
 	        '';
           preselect = "\"none\"";
           mapping = {
-            "<CR>" =''
+            "<CR>".__raw =''
               cmp.mapping({
                 i = function(fallback)
                   if cmp.visible() and cmp.get_active_entry() then
@@ -68,7 +68,7 @@
                 c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
               })
             '';
-            "<Tab>" = ''
+            "<Tab>".__raw = ''
               cmp.mapping(function(fallback)
                 if cmp.visible() then
                   cmp.select_next_item()
@@ -79,7 +79,7 @@
                 end
               end, {'i', 's'})
             '';
-            "<S-Tab>" = ''
+            "<S-Tab>".__raw = ''
               cmp.mapping(function(fallback)
                 if cmp.visible() then
                   cmp.select_prev_item()
@@ -90,7 +90,7 @@
                 end 
               end, {'i', 's'})
             '';
-            "<C-e>" = "cmp.mapping.abort()";
+            "<C-e>".__raw = "cmp.mapping.abort()";
           };
         };
       };
