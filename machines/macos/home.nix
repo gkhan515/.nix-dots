@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ../../apps/terminals
     ../../apps/nixvim
+    ../../apps/terminals
+    ../../apps/tmux.nix
     # ../../apps/starship.nix
   ];
 
