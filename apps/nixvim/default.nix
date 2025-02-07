@@ -53,6 +53,7 @@
               require('luasnip').lsp_expand(args.body)
 	          end
 	        '';
+          completion.completeopt = "menu,menuone,noinsert,noselect";
           preselect = "\"none\"";
           mapping = {
             "<CR>".__raw =''
@@ -142,9 +143,11 @@
 
     extraPlugins = with pkgs.vimPlugins; [
       # mini-base16 # needed for stylix
+      # onedarkpro-nvim
     ];
 
     colorschemes.onedark.enable = true;
+    # colorscheme = "onedark";
   };
 
   stylix.targets.nixvim.enable = false;

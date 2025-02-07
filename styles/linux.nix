@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ...}:
+{ pkgs, inputs, ...}:
 
 {
   imports = [
@@ -13,4 +13,5 @@
       name = "GoogleDot-White";
       size = 24;
     };
+  };
 }
