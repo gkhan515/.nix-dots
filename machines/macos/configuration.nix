@@ -12,6 +12,7 @@
   environment.systemPackages = with pkgs; [
     btop
     cmatrix
+    dotnetCorePackages.dotnet_9.sdk
     htop
     mpv
     neovim
