@@ -4,6 +4,9 @@
   programs.tmux = {
     enable = true;
     terminal = "tmux-256color";
+
+    baseIndex = 1;
+
     extraConfig = ''
       set-option -sa terminal-overrides ",*:Tc"
     '';
