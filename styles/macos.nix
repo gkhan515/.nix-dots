@@ -7,6 +7,7 @@
   ];
 
   stylix = {
+    enableReleaseChecks = false;
     image = /Users/gkhan/.dotfiles/wallpapers/kame-house.jpg;
   };
 }
