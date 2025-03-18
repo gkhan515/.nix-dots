@@ -109,7 +109,13 @@
           jdtls.enable = true;     # Java
           ts_ls.enable = true;     # Javascript/Typescript
           lua_ls.enable = true;    # Lua
-          nil_ls.enable = true;    # Nix
+          nixd = {                 # Nix
+            enable = true;
+            settings = {
+              nixpkgs.expr = "import <nixpkgs> { }";
+              formatting.command = [ "nixfmt" ];
+            };
+          };
           pyright.enable = true;   # Python
         };
       };
