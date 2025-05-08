@@ -106,6 +106,7 @@
         enable = true;
 	      servers = {
           clangd.enable = true;    # C
+          cssls.enable = true;     # CSS
           jdtls.enable = true;     # Java
           ts_ls.enable = true;     # Javascript/Typescript
           lua_ls.enable = true;    # Lua
