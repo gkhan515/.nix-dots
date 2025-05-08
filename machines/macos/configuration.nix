@@ -14,6 +14,8 @@
     cmatrix
     dotnetCorePackages.dotnet_9.sdk
     htop
+    # ladybird
+    texliveFull
     mpv
     neovim
     starship
