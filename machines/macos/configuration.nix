@@ -6,13 +6,14 @@
 
   imports = [
     ../../fonts/fonts.nix
-    ../../styles/macos.nix
+    # ../../styles/macos.nix
   ];
 
   environment.systemPackages = with pkgs; [
     btop
     cmatrix
     dotnetCorePackages.dotnet_9.sdk
+    home-manager
     htop
     # ladybird
     texliveFull
@@ -50,15 +51,15 @@
     home = "/Users/gkhan";
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      gkhan = import ./home.nix;
-    };
-    backupFileExtension = "BAK";
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     gkhan = import ./home.nix;
+  #   };
+  #   backupFileExtension = "BAK";
+  #   useGlobalPkgs = true;
+  #   useUserPackages = true;
+  # };
 
   nix.optimise.automatic = true;
 

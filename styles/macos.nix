@@ -1,8 +1,8 @@
-{ config, pkgs, inputs, ...}:
+{ inputs, ...}:
 
 {
   imports = [
-    inputs.stylix.darwinModules.stylix
+    inputs.stylix.homeManagerModules.stylix
     ./stylix.nix
   ];
 

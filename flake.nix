@@ -18,7 +18,7 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = {self, nixpkgs, ...}@inputs:
+  outputs = {self, nixpkgs, home-manager, ...}@inputs:
   {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
@@ -26,20 +26,29 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./machines/x86_64-linux/configuration.nix
-          inputs.home-manager.nixosModules.default
+          home-manager.nixosModules.default
         ];
       };
 
     };
 
-    homeConfigurations = {};
+    homeConfigurations =
+      let
+        p = nixpkgs.legacyPackages;
+      in {
+      darwin = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs; };
+        pkgs = p."aarch64-darwin";
+        modules = [ ./machines/macos/home.nix ];
+      };
+    };
 
     darwinConfigurations = {
       default = inputs.darwin.lib.darwinSystem {
         specialArgs = { inherit self; inherit inputs; };
         modules = [ 
           ./machines/macos/configuration.nix
-          inputs.home-manager.darwinModules.home-manager
+          home-manager.darwinModules.home-manager
         ];
       };
     };

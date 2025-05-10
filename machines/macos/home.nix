@@ -1,22 +1,23 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ../../apps/nixvim
+    ../../styles/macos.nix
     ../../apps/terminals
     ../../apps/tmux.nix
     # ../../apps/starship.nix
   ];
 
-  # home.username = "gkhan";
-  # home.homeDirectory = "/Users/gkhan";
+  home.username = "gkhan";
+  home.homeDirectory = "/Users/gkhan";
 
   programs.btop.enable = true;
   programs.kitty.package = pkgs.emptyDirectory;
   programs.wezterm.package = pkgs.emptyDirectory;
 
-  home.packages = with pkgs; [
-  ];
+  # home.packages = with pkgs; [
+  # ];
 
   home.file = {
   };
