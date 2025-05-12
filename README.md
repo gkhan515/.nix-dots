@@ -2,7 +2,7 @@
 
 ## Nix Learning
 nix-ld
-dev-env
+devenv
 shells? flakes?
 
 ## Neovim
