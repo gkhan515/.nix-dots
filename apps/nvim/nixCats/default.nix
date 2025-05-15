@@ -20,7 +20,7 @@ in {
       # This says which of those to install.
       packageNames = [ "myHomeModuleNvim" ];
 
-      luaPath = ./.;
+      luaPath = ./nvim;
 
       # the .replace vs .merge options are for modules based on existing configurations,
       # they refer to how multiple categoryDefinitions get merged together by the module.
@@ -37,24 +37,24 @@ in {
         # this includes LSPs
         lspsAndRuntimeDeps = {
           general = with pkgs; [
-            lazygit
+            # lazygit
           ];
           lua = with pkgs; [
-            lua-language-server
-            stylua
+            # lua-language-server
+            # stylua
           ];
           nix = with pkgs; [
-            nixd
-            alejandra
+            # nixd
+            # alejandra
           ];
           go = with pkgs; [
-            gopls
-            delve
-            golint
-            golangci-lint
-            gotools
-            go-tools
-            go
+            # gopls
+            # delve
+            # golint
+            # golangci-lint
+            # gotools
+            # go-tools
+            # go
           ];
         };
 
@@ -63,11 +63,11 @@ in {
           general = with pkgs.vimPlugins; [
             # lazy loading isnt required with a config this small
             # but as a demo, we do it anyway.
-            lze
-            lzextras
-            snacks-nvim
-            onedark-nvim
-            vim-sleuth
+            # lze
+            # lzextras
+            # snacks-nvim
+            # onedark-nvim
+            # vim-sleuth
           ];
         };
 
@@ -75,26 +75,26 @@ in {
         # use with packadd and an autocommand in config to achieve lazy loading
         optionalPlugins = {
           go = with pkgs.vimPlugins; [
-            nvim-dap-go
+            # nvim-dap-go
           ];
           lua = with pkgs.vimPlugins; [
-            lazydev-nvim
+            # lazydev-nvim
           ];
           general = with pkgs.vimPlugins; [
-            mini-nvim
-            nvim-lspconfig
-            vim-startuptime
-            blink-cmp
-            nvim-treesitter.withAllGrammars
-            lualine-nvim
-            lualine-lsp-progress
-            gitsigns-nvim
-            which-key-nvim
-            nvim-lint
-            conform-nvim
-            nvim-dap
-            nvim-dap-ui
-            nvim-dap-virtual-text
+            # mini-nvim
+            # nvim-lspconfig
+            # vim-startuptime
+            # blink-cmp
+            # nvim-treesitter.withAllGrammars
+            # lualine-nvim
+            # lualine-lsp-progress
+            # gitsigns-nvim
+            # which-key-nvim
+            # nvim-lint
+            # conform-nvim
+            # nvim-dap
+            # nvim-dap-ui
+            # nvim-dap-virtual-text
           ];
         };
 

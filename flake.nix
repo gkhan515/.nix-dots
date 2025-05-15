@@ -14,6 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
     nixvim.url = "github:nix-community/nixvim";
     stylix.url = "github:danth/stylix";
   };
@@ -48,7 +49,7 @@
         specialArgs = { inherit self; inherit inputs; };
         modules = [ 
           ./machines/macos/configuration.nix
-          home-manager.darwinModules.home-manager
+          # home-manager.darwinModules.home-manager
         ];
       };
     };

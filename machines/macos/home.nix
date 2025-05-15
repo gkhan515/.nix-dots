@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../../apps/nvim/nixvim
     ../../styles/macos.nix
     ../../apps/terminals
     ../../apps/tmux.nix
