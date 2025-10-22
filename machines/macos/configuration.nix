@@ -9,16 +9,22 @@
     # ../../styles/macos.nix
   ];
 
+  system.primaryUser = "gkhan";
+
   environment.systemPackages = with pkgs; [
     btop
+    cmake
     cmatrix
-    dotnetCorePackages.dotnet_9.sdk
+    dotnetCorePackages.sdk_9_0-bin
     home-manager
     htop
+    jdk
+    # zulu # java
     # ladybird
     texliveFull
     mpv
     neovim
+    nodePackages.serve
     starship
     tmux
     yt-dlp
@@ -27,14 +33,43 @@
 
   homebrew = {
     enable = true;
-    # brews = [
-    # ];
+    onActivation = {
+      cleanup = "zap";
+    };
+    brews = [
+      "emacs-plus@29"
+      "git-lfs"
+      "sdl3"
+      "sdl3_ttf"
+      "skhd"
+      "webtorrent-cli"
+      "yabai"
+    ];
     casks = [
+      "alacritty"
+      "anaconda"
       "betterdisplay"
       "discord"
       "firefox"
+      "ghostty"
       "iina"
+      "ipe"
       "kitty"
+      "libreoffice"
+      "obsidian"
+      "onyx"
+      "openmtp"
+      "protonvpn"
+      "stremio"
+      "unity-hub"
+      "visual-studio-code"
+      "vlc"
+      "wezterm"
+      "zoom"
+    ];
+    taps = [
+      "d12frosted/emacs-plus"
+      "koekeishiya/formulae"
     ];
   };
 
@@ -42,8 +77,8 @@
   # '';
 
   services = {
-    skhd.enable = true;
-    yabai.enable = true;
+    # skhd.enable = true;
+    # yabai.enable = true;
   };
 
   users.users.gkhan = {

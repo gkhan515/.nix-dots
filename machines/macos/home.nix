@@ -12,8 +12,6 @@
   home.homeDirectory = "/Users/gkhan";
 
   programs.btop.enable = true;
-  programs.kitty.package = pkgs.emptyDirectory;
-  programs.wezterm.package = pkgs.emptyDirectory;
 
   # home.packages = with pkgs; [
   # ];
